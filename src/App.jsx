@@ -40,12 +40,7 @@ const Game = () => {
   return (
     <div className="game">
       <div className="game-board">
-        <Board
-          xIsNext={xIsNext}
-          squares={currentSquares}
-          currentMove={currentMove}
-          onPlay={handlePlay}
-        />
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       {currentMove !== 0 && (
         <div className="game-info">

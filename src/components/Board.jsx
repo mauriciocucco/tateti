@@ -1,4 +1,11 @@
 import Square from "./Square.jsx";
+import PropTypes from "prop-types";
+
+Board.propTypes = {
+  xIsNext: PropTypes.bool.isRequired,
+  squares: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onPlay: PropTypes.func.isRequired,
+};
 
 const calculateWinner = (squares) => {
   const lines = [
@@ -20,7 +27,7 @@ const calculateWinner = (squares) => {
   return [false, null];
 };
 
-const Board = ({ xIsNext, squares, currentMove, onPlay }) => {
+const Board = ({ xIsNext, squares, onPlay }) => {
   const [winner, winnerLine] = calculateWinner(squares);
   const squaresList = squares.map((square, i) => {
     const isWinnerSquare = winnerLine && winnerLine.includes(i);
