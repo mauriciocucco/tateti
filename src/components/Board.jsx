@@ -1,12 +1,6 @@
 import Square from "./Square.jsx";
 import PropTypes from "prop-types";
 
-Board.propTypes = {
-  xIsNext: PropTypes.bool.isRequired,
-  squares: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onPlay: PropTypes.func.isRequired,
-};
-
 const calculateWinner = (squares) => {
   const lines = [
     [0, 1, 2],
@@ -75,6 +69,12 @@ const Board = ({ xIsNext, squares, onPlay }) => {
       {boardRows}
     </>
   );
+};
+
+Board.propTypes = {
+  xIsNext: PropTypes.bool.isRequired,
+  squares: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onPlay: PropTypes.func.isRequired,
 };
 
 export default Board;
