@@ -36,11 +36,18 @@ const Board = ({ xIsNext, squares, onPlay }) => {
     );
   });
   const boardRows = [];
+  const winnerStyle = winner
+    ? {
+        backgroundColor: "green",
+        color: "white",
+        padding: "5px",
+      }
+    : null;
   let status;
 
   winner
-    ? (status = `Winner: ${winner}`)
-    : (status = `Next player: ${xIsNext ? "X" : "O"}`);
+    ? (status = `Ganador: ${xIsNext ? "O" : "X"}`)
+    : (status = `Siguiente jugador: ${xIsNext ? "X" : "O"}`);
 
   for (let i = 0; i < squares.length; i += 3) {
     boardRows.push(
@@ -64,7 +71,9 @@ const Board = ({ xIsNext, squares, onPlay }) => {
 
   return (
     <>
-      <div className="status">{status}</div>
+      <div className="status" style={winnerStyle}>
+        {status}
+      </div>
       {boardRows}
     </>
   );
