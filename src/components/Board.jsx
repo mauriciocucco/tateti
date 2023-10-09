@@ -54,13 +54,12 @@ const Board = ({ xIsNext, squares, onPlay }) => {
     if (calculateWinner(squares)[0] || squares[i]) {
       return;
     }
+
     const nextSquares = squares.slice();
-    if (xIsNext) {
-      nextSquares[i] = "X";
-    } else {
-      nextSquares[i] = "O";
-    }
-    onPlay(nextSquares);
+
+    xIsNext ? (nextSquares[i] = "X") : (nextSquares[i] = "O");
+
+    onPlay(nextSquares, winner);
   };
 
   return (
