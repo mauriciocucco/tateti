@@ -46,7 +46,7 @@ const Game = () => {
       </li>
     ) : null;
   });
-  const sortedMoves = isAscending ? moves : moves.slice().reverse();
+  const sortedMoves = isAscending ? moves : moves.reverse();
 
   const handlePlay = (nextSquares, winner) => {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
@@ -63,7 +63,6 @@ const Game = () => {
 
   const sortMoves = () => {
     setIsAscending(!isAscending);
-    setHistory([...history]);
   };
 
   return (
